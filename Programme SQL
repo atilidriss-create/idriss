@@ -1,1 +1,11 @@
-SELECT 
+CREATE TABLE commande (
+id INTEGER
+mot_clef TEXT,
+action TEXT)
+
+
+CREATE TABLE lycee(
+id INTEGER,
+nom TEXT,
+nb_eleves INTEGER,
+date_creation DATE)
