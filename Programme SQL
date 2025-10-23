@@ -9,3 +9,19 @@ id INTEGER,
 nom TEXT,
 nb_eleves INTEGER,
 date_creation DATE)
+
+CREATE TABLE motcle (
+id INT PRIMARY KEY,
+mot VARCHAR(100) NOT NULL,
+category VARCHAR(50), 
+description TEXT
+);
+
+CREATE TABLE actions (
+id INT  PRIMARY KEY,
+nom VARCHAR(100) NOT NULL,   
+description TEXT,
+lienscript VARCHAR(255)
+);
+
+
