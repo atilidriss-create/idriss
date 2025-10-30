@@ -34,9 +34,26 @@ CREATE TABLE category (
   actions INT 
   FOREIGN KEY (actions) REFERENCES action(id_actions);
 
-
-CREATE TABLE lycee(
+Table facultative 
+CREATE TABLE ville(
   id INTEGER,
   nom VARCHAR(10),
-  nb_eleves INTEGER,
-  date_creation DATE)
+  pays VARCHAR(30),
+  nb_eleves INT,
+  date_creation DATE
+)
+
+CREATE TABLE utilisateur(
+  id_utilisateurs INT PRIMARY KEY,
+  nom VARCHAR(10),
+  prenom VARCHAR(10),
+  surnom VARCHAR(10),
+  mot_de_passe VARCHAR(50),
+  description(VARCHAR(200),
+  date_utilisation DATE)
+
+
+
+
+
+  
