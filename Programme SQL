@@ -1,6 +1,6 @@
 CREATE TABLE commande (
 id INTEGER
-mot_clef TEXT,
+mot_clef VARCHAR,
 action TEXT)
 
 CREATE TABLE motcle (
@@ -12,20 +12,25 @@ description TEXT
 
 CREATE TABLE actions (
 id INT  PRIMARY KEY,
-nom VARCHAR(100) NOT NULL,   
-description TEXT,
-lienscript VARCHAR(255)
-motcle INT NOT NULL
+nom VARCHAR(100) NOT NULL,
+description VARCHAR(255),
+lienscript VARCHAR(255),
+motcle INT NOT NULL,
 FOREIGN KEY (motcle) REFERENCES motcle(id)
 );
 
 CREATE TABLE phrases (
 id_phrases INT NOT NULL,
-category 
+category VARCHAR(10),
+taille INT 
+
+
 
 
 CREATE TABLE relations (
 id_category INT NOT NULL,
+nom VARCHAR(20),
+description VARCHAR(20),
 
 
 
