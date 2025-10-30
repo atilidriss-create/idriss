@@ -3,13 +3,6 @@ id INTEGER
 mot_clef TEXT,
 action TEXT)
 
-
-CREATE TABLE lycee(
-id INTEGER,
-nom TEXT,
-nb_eleves INTEGER,
-date_creation DATE)
-
 CREATE TABLE motcle (
 id INT PRIMARY KEY,
 mot VARCHAR(100) NOT NULL,
@@ -22,6 +15,22 @@ id INT  PRIMARY KEY,
 nom VARCHAR(100) NOT NULL,   
 description TEXT,
 lienscript VARCHAR(255)
+motcle INT NOT NULL
+FOREIGN KEY (motcle) REFERENCES motcle(id)
 );
 
+CREATE TABLE phrases (
+id_phrases INT NOT NULL,
+category 
 
+
+CREATE TABLE relations (
+id_category INT NOT NULL,
+
+
+
+CREATE TABLE lycee(
+id INTEGER,
+nom TEXT,
+nb_eleves INTEGER,
+date_creation DATE)
