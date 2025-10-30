@@ -1,41 +1,42 @@
 CREATE TABLE commande (
-id INTEGER
-mot_clef VARCHAR,
-action TEXT)
+  id INT PRIMARY KEY
+  mot_clef VARCHAR(10),
+  action VARCHAR(10);
 
-CREATE TABLE motcle (
-id INT PRIMARY KEY,
-mot VARCHAR(100) NOT NULL,
-category VARCHAR(50), 
-description TEXT
+CREATE TABLE motcle(
+  id INTEGER PRIMARY KEY,
+  mot VARCHAR(100) NOT NULL,
+  category VARCHAR(50), 
+  description VARCHAR(255)
+  FOREIGN KEY (category) REFERENCES category(category_id);
 );
 
-CREATE TABLE actions (
-id INT  PRIMARY KEY,
-nom VARCHAR(100) NOT NULL,
-description VARCHAR(255),
-lienscript VARCHAR(255),
-motcle INT NOT NULL,
-FOREIGN KEY (motcle) REFERENCES motcle(id)
+CREATE TABLE action (
+  id_action INT PRIMARY KEY,
+  nom VARCHAR(100) NOT NULL,
+  description VARCHAR(255),
+  lienscript VARCHAR(255),
+  motcle INT NOT NULL,
+  FOREIGN KEY (motcle) REFERENCES motcle(id)
 );
 
-CREATE TABLE phrases (
-id_phrases INT NOT NULL,
-category VARCHAR(10),
-taille INT 
+CREATE TABLE phrase (
+  id_phrases INT PRIMARY KEY NOT NULL,
+  category VARCHAR(10),
+  taille INTEGER
+  FOREIGN KEY (category) REFERENCES category(id_category);
 
 
-
-
-CREATE TABLE relations (
-id_category INT NOT NULL,
-nom VARCHAR(20),
-description VARCHAR(20),
-
+CREATE TABLE category (
+  id_category INT PRIMARY KEY NOT NULL,
+  nom VARCHAR(20),
+  description VARCHAR(20)
+  actions INT 
+  FOREIGN KEY (actions) REFERENCES action(id_actions);
 
 
 CREATE TABLE lycee(
-id INTEGER,
-nom TEXT,
-nb_eleves INTEGER,
-date_creation DATE)
+  id INTEGER,
+  nom VARCHAR(10),
+  nb_eleves INTEGER,
+  date_creation DATE)
