@@ -1,16 +1,20 @@
-CREATE TABLE commande (
-  id INT PRIMARY KEY
-  mot_clef VARCHAR(10),
-  action VARCHAR(10);
-
-CREATE TABLE motcle(
-  id INTEGER PRIMARY KEY,
-  mot VARCHAR(100) NOT NULL,
-  category VARCHAR(50), 
-  description VARCHAR(255)
-  FOREIGN KEY (category) REFERENCES category(category_id);
+CREATE TABLE category (
+  id_category INT PRIMARY KEY,
+  nom VARCHAR(20),
+  description VARCHAR(100)
 );
+Cette relation permet de stocker et d’exploiter les domaines auxquels les mots clés feront référence. 
+CREATE TABLE motcle (
+  id_motcle INT PRIMARY KEY,
+  mot VARCHAR(100) NOT NULL,
+  category INT,
 
+  description VARCHAR(255),
+  FOREIGN KEY (category) REFERENCES category(id_category)
+);
+CREATE TABLE association (
+id_motcle INT, 
+id_
 CREATE TABLE action (
   id_action INT PRIMARY KEY,
   nom VARCHAR(100) NOT NULL,
@@ -21,39 +25,42 @@ CREATE TABLE action (
 );
 
 CREATE TABLE phrase (
-  id_phrases INT PRIMARY KEY NOT NULL,
-  category VARCHAR(10),
-  taille INTEGER
-  FOREIGN KEY (category) REFERENCES category(id_category);
+  id_phrase INT PRIMARY KEY,
+  category INT,
+  taille INT,
+  FOREIGN KEY (category) REFERENCES category(id_category)
+);
 
 
-CREATE TABLE category (
-  id_category INT PRIMARY KEY NOT NULL,
-  nom VARCHAR(20),
-  description VARCHAR(20)
-  actions INT 
-  FOREIGN KEY (actions) REFERENCES action(id_actions);
 
-Table facultative 
-CREATE TABLE ville(
-  id INTEGER,
-  nom VARCHAR(10),
-  pays VARCHAR(30),
-  nb_eleves INT,
-  date_creation DATE
-)
+CREATE TABLE commande (
+  id_commande INT PRIMARY KEY,
+  mot_cle INT,
+  action INT,
+  FOREIGN KEY (mot_cle) REFERENCES motcle(id),
+  FOREIGN KEY (action) REFERENCES action(id_action)
+);
 
-CREATE TABLE utilisateur(
-  id_utilisateurs INT PRIMARY KEY,
+
+CREATE TABLE utilisateur (
+  id_utilisateur INT PRIMARY KEY,
   nom VARCHAR(10),
   prenom VARCHAR(10),
   surnom VARCHAR(10),
   mot_de_passe VARCHAR(50),
-  description(VARCHAR(200),
-  date_utilisation DATE)
+  description VARCHAR(200),
+  date_utilisation DATE
+  commande INT
+  FOREIGN KEY (commande) REFERENCES category(id_commande)
+);
 
 
 
-
-
-  
+-- Table facultative
+CREATE TABLE ville (
+  id INT PRIMARY KEY,
+  nom VARCHAR(30),
+  pays VARCHAR(30),
+  nb_eleves INT,
+  date_creation DATE
+);
