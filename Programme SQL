@@ -1,69 +1,78 @@
-CREATE TABLE category (
-  id_category INT PRIMARY KEY,
+CREATE TABLE categorie (
+  id_categorie INT NOT NULL PRIMARY KEY,
   nom VARCHAR(20),
   description VARCHAR(100)
 );
-Cette relation permet de stocker et d’exploiter les domaines auxquels les mots clés feront référence. 
+Cette relation permet de stocker et d’exploiter les domaines auxquels les mots clés feront référence. Ces domaines permettront d’exploiter les opérations stockées dans la relation action
+
+CREATE TABLE commande (
+  id_commande INT NOT NULL PRIMARY KEY,
+ commande VARCHAR(255),
+ description VARCHAR(255)
+  );
 
 CREATE TABLE motcle (
-  id_motcle INT PRIMARY KEY,
-  mot VARCHAR(100) NOT NULL,
+  id_motcle INT NOT NULL PRIMARY KEY,
+  motcle VARCHAR(15),
+ commande INT NOT NULL,
   description VARCHAR(255),
-
 );
+
+CREATE TABLE spécification(
+id_motcle INT NOT NULL,
+id_commande INT NOT NULL,
+PRIMARY KEY (id_motcle, id_commande)
+FOREIGN KEY id_motcle references motcle(id_motcle)
+FOREIGN KEY id_commande references commande (id_commande)
+);
+La relation mot clé stocke les données concernant les mots clés qui pourraient être formulés dans la commande. Chaque commande a des mots clés spécifiques, et chaque mot clé peut être lié à plusieurs commandes, nous sommes dans le cas du lien : plusieurs à plusieurs. Il y a donc besoin de la relation spécification pour relier la relation commande à la relation motcle.
+
+
+
 CREATE TABLE association (
 id_motcle INT NOT NULL, 
-id_category INT NOT NULL,
-PRIMARY KEY (id_motcle, id_category),
+id_categorie INT NOT NULL,
+PRIMARY KEY (id_motcle, id_categorie),
 FOREIGN KEY id_motcle REFERENCES motcle(id_motcle),
-FOREIGN KEY id_category REFERENCES category(id_category)
+FOREIGN KEY id_categorie REFERENCES categorie(id_categorie)
 );
 relation qui permet de mettre en lien les relations motcle et category car nous sommes dans le cas du lien : plusieurs à plusieurs. Plusieurs catégories peuvent êtres liées à plusieurs mots clés.
 
+
+
+
 CREATE TABLE action (
-  id_action INT PRIMARY KEY,
+  id_action INT NOT NULL PRIMARY KEY,
   nom VARCHAR(100) NOT NULL,
   description VARCHAR(255),
   lienscript VARCHAR(255),
-  motcle INT NOT NULL,
-  FOREIGN KEY (motcle) REFERENCES motcle(id_motcle)
+  categorie INT NOT NULL,
+  FOREIGN KEY (categorie) REFERENCES categorie(id_categorie)
 );
-
-CREATE TABLE phrase (
-  id_phrase INT PRIMARY KEY,
-  category INT NOT NULL,
-  taille INT,
-  FOREIGN KEY (category) REFERENCES category(id_category)
-);
+La relation action concerne toutes les opérations que devra faire l’opérateur en fonction de la catégorie associée à la demande de l’utilisateur. En effet, si l’utilisateur demande par exemple la météo de demain, l’opération associée sera un relevé d’informations  et un affichage d’un entier en °C, et non pas un calcul. Il y a pour chaque catégorie des actions bien spécifiques nous sommes dans le cas du lien : un à plusieurs.
 
 
+Cette relation stocke les données concernant la commande que va fournir l’utilisateur 
 
-CREATE TABLE commande (
-  id_commande INT PRIMARY KEY,
-  mot_cle INT NOT NULL,
-  action INT NOT NULL,
-  FOREIGN KEY (mot_cle) REFERENCES motcle(id),
-  FOREIGN KEY (action) REFERENCES action(id_action)
-);
 
 
 CREATE TABLE utilisateur (
-  id_utilisateur INT PRIMARY KEY,
-  nom VARCHAR(10),
-  prenom VARCHAR(10),
-  surnom VARCHAR(10),
+  id_utilisateur INT NOT NULL PRIMARY KEY,
+  nom VARCHAR(15),
+  prenom VARCHAR(15),
+  surnom VARCHAR(15),
   mail VARCHAR(20),
   mot_de_passe VARCHAR(50),
   date_utilisation DATE,
   commande INT NOT NULL,
-  FOREIGN KEY (commande) REFERENCES category(id_commande)
+  FOREIGN KEY (commande) REFERENCES categorie(id_commande)
 ); 
 
 
 
 -- Table facultative = objet d'étude 
 CREATE TABLE ville (
-  id INT PRIMARY KEY,
+  id INT NOT NULL PRIMARY KEY,
   nom VARCHAR(30),
   pays VARCHAR(30),
   nb_eleves INT,
