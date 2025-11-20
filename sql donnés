@@ -1,0 +1,24 @@
+
+INSERT INTO categorie (id_categorie, nom, description) VALUES
+(1, 'Météo', 'Actions lié aux donné météorologique'),
+(2, 'Général', 'Commandes et utilitaires divers');
+
+INSERT INTO commande (id_commande, commande, description) VALUES
+(1, 'meteo', 'Récupérer la météo d''une ville'),
+(2, 'heure', 'Donner l''heure locale'),
+(3, 'aide', 'Afficher l''aide ou la liste des commandes');
+
+INSERT INTO motcle (id_motcle, motcle, commande, description) VALUES
+(1, 'météo', 1, 'mot déclencheur pour météo'),
+(2, 'meteo', 1, 'variation sans accent'),
+(4, 'heure', 2, 'mot déclencheur pour l''heure'),
+(5, 'help', 3, 'mot pour aide');
+
+
+INSERT INTO utilisateur (id_utilisateur, nom, prenom, surnom, mail, mot_de_passe, date_utilisation, commande) VALUES
+(1, 'Idriss', 'Atil', 'cr7legoat', 'atilidriss@gmail.com', 'motdepasse_exemple', '2024-01-01', 3),
+(2, 'Dupont', 'Marie', 'mdupont', 'marie@example.com', 'motdepasse_exemple2', '2024-02-01', 1);
+
+INSERT INTO ville (id, nom, pays, nb_eleves, date_creation) VALUES
+(1, 'Gap', 'France', 0, '2020-01-01'),
+(2, 'Paris', 'France', 0, '2020-01-01');
