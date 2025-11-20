@@ -8,7 +8,7 @@ Contenu du dépôt
 - README.md : cette documentation.
 
 Fonctionnalités envisagées
-- Endpoint web recevant des messages en POST.
-- Détection de mots‑clés et mapping vers des "actions" (ex : fetch météo, ouvrir un lien, renvoyer une information).
-- Système de configuration des mots‑clés / actions (fichier JSON ou base de données).
+- Pouvoir envoyer des messages sur un site.
+- Détection de mots‑clés et execution des "actions" (ex : voir météo, ouvrir un lien, renvoyer une information).
+- Système de configuration des mots‑clés / actions.
 - Exemple d'action implémentée : récupération de la météo via une API publique.
