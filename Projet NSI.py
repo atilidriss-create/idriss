@@ -33,3 +33,48 @@ class Utilisateur:
 
 
 
+class File:
+    def __init__(self):
+        """
+        Initialisation de l'instance File.
+        """
+        self.f = []
+
+    def __str__(self):
+        """
+        Méthode de représentation sous forme de chaînes de caractères.
+        """
+        return str(self.f)
+
+    def enfiler(self, element):
+        """
+        Prend en argument un élément et l'ajoute à la fin de la file.
+        """
+        self.f.append(element)
+
+    def defiler(self):
+        """
+        Retire le premier élément de la file et le renvoie.
+        """
+        return self.f.pop(0)
+
+
+    def sommet(self):
+        """
+        Renvoie le premier élément de la file.
+        """
+        return self.f[0]
+
+
+    def taille(self):
+        """
+        Renvoie la taille de la file
+        """
+        return len(self.f)
+
+    def est_vide(self):
+        """
+        Renvoie un booléen : si la file est vide ou non.
+        """
+        return self.f == []
+        
