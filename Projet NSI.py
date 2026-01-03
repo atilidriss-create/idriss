@@ -25,6 +25,8 @@ class Action:
         self.nom = nom
         self.categorie = categorie
         self.fonction = fonction  # faudrait mettre les fonctions python a utiliser ici
+    def executer(self):
+        return self.fonction()
 
 
 class Utilisateur:
@@ -98,6 +100,20 @@ liste de mots-clés avec leurs descriptions pour notre bot.
 Chaque mot-clé est associé à un ID de fonction (météo, heure, blague, aide, etc.) pour déclencher 
 l'action correspondante quand l'utilisateur l'écrit. C  rée a partir de la class motCle
 """
+categories = [
+    Categorie(1, "Météo", "Informations météorologiques"),
+    Categorie(2, "Temps", "Heure et date"),
+    Categorie(3, "Divertissement", "Blagues"),
+    Categorie(4, "Aide", "Aide et informations"),
+    Categorie(5, "Général", "Salutations")
+]
+
+"""
+Liste des catégories.
+Les catégories servent à organiser les commandes
+selon leur type.
+"""
 
         
+
 
