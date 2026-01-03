@@ -1,3 +1,6 @@
+import datetime
+import random
+
 class MotCle:
     def __init__(self, id_motcle, mot, id_commande, description=""):
         self.id_motcle = id_motcle
@@ -77,4 +80,24 @@ class File:
         Renvoie un booléen : si la file est vide ou non.
         """
         return self.f == []
+
+
+mots_cles = [
+    MotCle(1, "météo", 1, "Demande la météo"),
+    MotCle(2, "meteo", 1, "Météo sans accent"),
+    MotCle(3, "temps", 1, "Synonyme de météo"),
+    MotCle(4, "heure", 2, "Donner l'heure"),
+    MotCle(5, "date", 2, "Donner la date"),
+    MotCle(6, "blague", 3, "Raconter une blague"),
+    MotCle(7, "aide", 4, "Afficher l'aide"),
+    MotCle(8, "help", 4, "Aide en anglais"),
+    MotCle(9, "bonjour", 5, "Salutation")
+]
+"""
+liste de mots-clés avec leurs descriptions pour notre bot. 
+Chaque mot-clé est associé à un ID de fonction (météo, heure, blague, aide, etc.) pour déclencher 
+l'action correspondante quand l'utilisateur l'écrit. C  rée a partir de la class motCle
+"""
+
         
+
