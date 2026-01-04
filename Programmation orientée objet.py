@@ -43,7 +43,7 @@ class Utilisateur:
 class Maillon:
     def __init__(self, valeur, suivant=None):
         """
-        Initialisation de l'instance Maillon.
+        Initialisation du Maillon.
         """
         self.valeur = valeur
         self.suivant = suivant
@@ -96,7 +96,7 @@ class Maillon:
 class File:
     def __init__(self):
         """
-        Initialisation de l'instance File.
+        Initialisation de la File.
         """
         self.f = []
 
@@ -139,6 +139,60 @@ class File:
         return self.f == []
 
 
+
+class Pile:
+    def __init__(self):
+        """
+        Initialisation de la pile.
+        """
+        self.p = []
+
+
+   def __str__(self):
+       """
+       Méthode de représentation sous forme de chaînes de caractères.
+       """
+       return str(self.p)
+
+
+   def empiler(self, element):
+       """
+       Prend en argument un élément et l'ajoute à la fin de la pile.
+       """
+       self.p.append(element)
+
+
+  def depiler(self):
+      """
+      Retire le dernier élément de la pile et le renvoie.
+      """
+      return self.p.pop(-1)
+
+
+ def sommet(self):
+     """
+     Renvoie le dernier élément de la pile.
+     """
+     return self.p[-1]
+
+
+def est_vide(self):
+    """
+    Renvoie un booléen : si la pile est vide ou non.
+    """
+    self.p == []
+
+
+def taille(self):
+    """
+    Renvoie la taille de la pile.
+    """
+    return len(self.p)
+
+
+     
+
+
 mots_cles = [
     MotCle(1, "météo", 1, "Demande la météo"),
     MotCle(2, "meteo", 1, "Météo sans accent"),
@@ -170,6 +224,7 @@ selon leur type.
 """
 
         
+
 
 
 
