@@ -3,34 +3,50 @@ import random
 
 class MotCle:
     def __init__(self, id_motcle, mot, id_commande, description=""):
+        """
+        Initialisation de Motcle.
+        """
         self.id_motcle = id_motcle
         self.mot = mot
         self.id_commande = id_commande
         self.description = description
 class Commande:
     def __init__(self, id_commande, nom, description=""):
+        """
+        Initialisation de Commande.
+        """
         self.id_commande = id_commande
         self.nom = nom
         self.description = description
 
 class Categorie:
+    
     def __init__(self, id_categorie, nom, description=""):
+        """
+        Initialisation de Categorie.
+        """
         self.id_categorie = id_categorie
         self.nom = nom
         self.description = description
 
 class Action:
     def __init__(self, id_action, nom, categorie, fonction):
+        """
+        Initialisation de Action.
+        """
         self.id_action = id_action
         self.nom = nom
         self.categorie = categorie
-        self.fonction = fonction  # faudrait mettre les fonctions python a utiliser ici
+        self.fonction = fonction  # les fonctions usuelles en python (addition, soustraction, multiplication, division)
     def executer(self):
         return self.fonction()
 
 
 class Utilisateur:
     def __init__(self, id_utilisateur, nom, prenom, surnom):
+        """
+        Initialisation de Utilisateur.
+        """
         self.id_utilisateur = id_utilisateur
         self.nom = nom
         self.prenom = prenom
@@ -235,6 +251,7 @@ selon leur type.
 """
 
         
+
 
 
 
