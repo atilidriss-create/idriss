@@ -88,6 +88,17 @@ class Maillon:
 
 
 
+    def taille(self, t=1):
+        if self.est_vide():
+            return 0
+        elif self.suivant = None:
+            return t
+        else:
+            t += 1
+            self.suivant.taille()
+
+
+
  
     
 
@@ -148,46 +159,46 @@ class Pile:
         self.p = []
 
 
-   def __str__(self):
-       """
-       Méthode de représentation sous forme de chaînes de caractères.
-       """
-       return str(self.p)
+    def __str__(self):
+         """
+         Méthode de représentation sous forme de chaînes de caractères.
+         """
+         return str(self.p)
 
 
-   def empiler(self, element):
-       """
-       Prend en argument un élément et l'ajoute à la fin de la pile.
-       """
-       self.p.append(element)
+    def empiler(self, element):
+         """
+         Prend en argument un élément et l'ajoute à la fin de la pile.
+         """
+         self.p.append(element)
 
 
-  def depiler(self):
-      """
-      Retire le dernier élément de la pile et le renvoie.
-      """
-      return self.p.pop(-1)
+    def depiler(self):
+        """
+        Retire le dernier élément de la pile et le renvoie.
+        """
+        return self.p.pop(-1)
 
 
- def sommet(self):
-     """
-     Renvoie le dernier élément de la pile.
-     """
-     return self.p[-1]
+    def sommet(self):
+        """
+        Renvoie le dernier élément de la pile.
+        """
+        return self.p[-1]
 
 
-def est_vide(self):
-    """
-    Renvoie un booléen : si la pile est vide ou non.
-    """
-    self.p == []
+    def est_vide(self):
+        """
+        Renvoie un booléen : si la pile est vide ou non.
+        """
+      self.p == []
 
 
-def taille(self):
-    """
-    Renvoie la taille de la pile.
-    """
-    return len(self.p)
+    def taille(self):
+        """
+        Renvoie la taille de la pile.
+        """
+        return len(self.p)
 
 
      
@@ -224,6 +235,7 @@ selon leur type.
 """
 
         
+
 
 
 
