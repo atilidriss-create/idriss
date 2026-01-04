@@ -38,6 +38,61 @@ class Utilisateur:
 
 
 
+
+
+class Maillon:
+    def __init__(self, valeur, suivant=None):
+        """
+        Initialisation de l'instance Maillon.
+        """
+        self.valeur = valeur
+        self.suivant = suivant
+
+
+    def __str__(self):
+        """
+        Méthode de représentation sous forme de chaînes de caractères.
+        """
+        return f"{self.valeur} --> {self.suivant}"
+
+
+    def est_vide(self):
+        """
+        Renvoie un booléen : si la liste chaînée est vide ou non.
+        """
+        return self.valeur == None
+
+
+    def ajouter_debut(self, element):
+        """
+        Prend en argument un élément et l'ajoute au début de la liste chaînée.
+        """
+        nouveau = Maillon(self.valeur, self.suivant)
+        self.valeur = element
+        self.suivant = nouveau
+
+
+
+    def ajouter_fin(self, element):
+        """
+        Prend en argument un élément et l'ajoute à la fin de la liste chaînée.
+        """
+        if self.est_vide():
+            self.valeur = element
+
+        elif self.suivant == None:
+            self.suivant = element
+            
+        else:
+            self.suivant.ajouter_debut(element)
+
+
+
+ 
+    
+
+
+
 class File:
     def __init__(self):
         """
@@ -115,5 +170,6 @@ selon leur type.
 """
 
         
+
 
 
