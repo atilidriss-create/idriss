@@ -172,7 +172,7 @@ class Pile:
         """
         Initialisation de la pile.
         """
-        self.p = []
+        self.p == []
 
 
     def __str__(self):
@@ -207,7 +207,7 @@ class Pile:
         """
         Renvoie un booléen : si la pile est vide ou non.
         """
-      self.p == []
+       return self.p == []
 
 
     def taille(self):
@@ -251,6 +251,7 @@ selon leur type.
 """
 
         
+
 
 
 
