@@ -135,10 +135,31 @@ class Action:
         Prend en argument une ville et affiche le pays associé.
         """
         return base_de_donnees(f"SELECT pays FROM ville WHERE ville={ville}")
+
+
+    def raconter_une_blague(self):
+        """
+        Renvoie une blague aléatoire
+        """
+        return random.choice(blagues)
+
+
+    def afficher_aide(self):
+        """
+        Donne toutes les informations concernant ce que peut faire la base de données. 
+        """
+        return base_de_données(f"SELECT description FROM action")
+
+
+    def afficher_mail_utilisateur(self, utilisateur):
+        """
+        Renvoie l'adresse mail de l'utilisateur entré en argument
+        """
         
         
         
-        
+a = Action()
+print(a.raconter_une_blague())        
 
 
 class Utilisateur:
@@ -160,3 +181,58 @@ print(a.afficher_motdepasse_utilisateur("cr7legoat"))
 print(a.afficher)
 
 print(base_de_donnees(f"SELECT * FROM utilisateur"))
+
+
+
+def choisir_message(blagues):
+    
+
+# Liste des messages
+blagues = [
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.",
+    "Pourquoi les poissons détestent l'ordinateur ? Parce qu'ils ont peur du net.",
+    "Quel est le comble pour un électricien ? De ne pas être au courant.",
+    "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre.",
+    "Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau."
+]
