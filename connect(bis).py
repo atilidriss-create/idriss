@@ -1,5 +1,6 @@
 import mysql.connector
 import datetime
+import random
 
 def connecter(requete):
     try:
@@ -55,7 +56,7 @@ class MotCle:
         
         
 class Commande:
-    def __init__(self, nom, description=""):
+    def __init__(self, nom,commande , description=""):
         """
         Initialisation de Commande.
         """
@@ -119,7 +120,7 @@ class Action:
         """
         Affiche la date de construction de la ville prise en argument.
         """
-        return base_de_donnees(f"SELECT date_construction FROM ville WHERE nom = '{ville}'")
+        return base_de_donnees(f"SELECT date_construction FROM ville WHERE nom = '{nom_ville}'")
     
     
     
@@ -155,7 +156,14 @@ class Action:
         """
         Renvoie l'adresse mail de l'utilisateur entré en argument
         """
-        
+        return connecter(f"SELECT email FROM utilisateur WHERE surnom = '{utilisateur}'")
+
+    def ajouter_utilisateur(self, nom, prenom, surnom, email, mdp):
+        sql = f"""
+            INSERT INTO utilisateur (nom, prenom, surnom, email, mot_de_passe)
+            VALUES ('{nom}', '{prenom}', '{surnom}', '{email}', '{mdp}')"""
+        return self.base.requete(sql)
+
         
         
 a = Action()
@@ -225,5 +233,6 @@ blagues = [
     "Quel est le comble pour un électricien ? De ne pas être au courant.",
     "Pourquoi les moutons ne racontent jamais de blagues ? Parce qu'ils ont peur de se faire tondre."
 ]
+
 
 
