@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 24 nov. 2025 à 08:31
+-- Généré le : lun. 19 jan. 2026 à 08:28
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -96,6 +96,59 @@ INSERT INTO `attribution` (`id_categorie`, `id_action`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `blague`
+--
+
+DROP TABLE IF EXISTS `blague`;
+CREATE TABLE IF NOT EXISTS `blague` (
+  `id_blague` int(11) NOT NULL,
+  `lablague` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `blague`
+--
+
+INSERT INTO `blague` (`id_blague`, `lablague`) VALUES
+(1, 'Quelle mamie fait peur aux voleurs ? Mamie Traillette.'),
+(2, 'Pourquoi est-ce si difficile de conduire dans le Nord ? Parce que les voitures n\'arrêtent pas de caler (Pas-de-Calais).'),
+(3, 'Pourquoi est-ce qu\'on dit que les bretons sont tous frères et sœurs ? Parce qu\'ils n\'ont Quimper.'),
+(4, 'Pourquoi faut-il mettre tous les crocos en prison ? Parce que les crocos dealent.'),
+(5, 'Comment fait-on pour allumer un barbecue breton ? On utilise des breizh.'),
+(6, 'Pourquoi dit-on que les poissons travaillent illégalement ? Parce qu\'ils n\'ont pas de FISH de paie.'),
+(7, 'Quel fruit est assez fort pour couper des arbres ? Le citron.'),
+(8, 'Que fait un cendrier devant un ascenseur ? Il veut des cendres.'),
+(9, 'Que dit une imprimante dans l\'eau ? J\'ai papier.'),
+(10, 'Pourquoi les girafes n\'existent pas ? Parce que c\'est un coup monté.'),
+(11, 'Comment appelle-t-on un jeudi vraiment nul ? Une trajeudi.'),
+(12, 'Que fait un geek quand il a peur ? Il URL.'),
+(13, 'Quel est le carburant le plus détendu ? Le kérozen.'),
+(14, 'Quel est le sport préféré des insectes ? Le cricket.'),
+(15, 'Pourquoi est-ce que les éoliennes n\'ont pas de copain ? Parce qu\'elles se prennent toujours des vents.'),
+(16, 'Pourquoi les cordonniers sont-ils curieux ? Parce qu\'ils se mêlent de tout (semelle).'),
+(17, 'Que dit le citron quand il braque une banque ? « Pas un zeste, ze suis pressé ! »'),
+(18, 'Comment appelle-t-on une manifestation d\'aveugles ? Un festival de cannes.'),
+(19, 'Que risque-t-on à lancer de l\'ail sur un mur ? Le retour du jet d\'ail.'),
+(20, 'Quelle est la fée la plus paresseuse ? La fée Néante.'),
+(21, 'Que dit une noisette qui tombe à l\'eau ? « Au secours, je me noix ! »'),
+(22, 'Tu connais l\'histoire de l\'armoire ? Elle est pas commode.'),
+(23, 'Tu connais l\'histoire de la feuille de papier ? Elle déchire !'),
+(24, 'Comment appelle-t-on un chat tout-terrain ? Un cat cat.'),
+(25, 'Quelle est l\'info la plus tirée par les cheveux ? Il n\'y a pas de chauve à Bastia, mais à Calvi si.'),
+(26, 'Que disaient les apôtres à Jésus quand il racontait une blague de ce top ? « C\'est naze, arrête. »'),
+(27, 'Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.'),
+(28, 'Pourquoi les poissons détestent l\'ordinateur ? Parce qu\'ils ont peur du net.'),
+(29, 'Quel est le comble pour un électricien ? De ne pas être au courant.'),
+(30, 'Pourquoi les moutons ne racontent jamais de blagues ? Parce qu\'ils ont peur de se faire tondre.'),
+(31, 'Quel est le comble pour un électricien ? De ne pas être au courant.'),
+(32, 'Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant ? Parce que sinon ils tombent toujours dans le bateau.'),
+(33, 'Pourquoi les poissons détestent l\'ordinateur ? Parce qu\'ils ont peur du net.'),
+(34, 'Quel est le comble pour un électricien ? De ne pas être au courant.'),
+(35, 'Pourquoi les moutons ne racontent jamais de blagues ? Parce qu\'ils ont peur de se faire tondre.');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `catégorie`
 --
 
@@ -131,7 +184,7 @@ INSERT INTO `catégorie` (`id_categorie`, `nom`, `description`) VALUES
 DROP TABLE IF EXISTS `commande`;
 CREATE TABLE IF NOT EXISTS `commande` (
   `id_commande` int(11) NOT NULL,
-  `commande` varchar(50) NOT NULL,
+  `nom_commande` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`id_commande`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -140,12 +193,16 @@ CREATE TABLE IF NOT EXISTS `commande` (
 -- Déchargement des données de la table `commande`
 --
 
-INSERT INTO `commande` (`id_commande`, `commande`, `description`) VALUES
+INSERT INTO `commande` (`id_commande`, `nom_commande`, `description`) VALUES
 (2, 'heure', 'Donner l\'heure locale'),
 (3, 'aide', 'Afficher l\'aide ou la liste des commandes'),
 (1, 'meteo', 'Récupérer la météo d\'une ville'),
 (4, 'addition', 'Réalise une addition'),
-(5, 'villes', 'Recherche des informations sue les villes');
+(5, 'villes', 'Recherche des informations sue les villes'),
+(6, 'utilisateurs', 'Permet de rechercher des informations sur un utilisateur de l\'appli.'),
+(7, 'Achat', 'Permet de gérer toutes les informations liée a nos achat.'),
+(8, 'Bonjour!', 'Permet au bot de saluer l\'utilisateur!'),
+(9, 'Actualités', 'Permet de rechercher les actualités ');
 
 -- --------------------------------------------------------
 
@@ -214,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `surnom`, `mail`, `mot_de_passe`, `date_utilisation`, `commande`) VALUES
-(1, 'Idriss', 'Atil', 'cr7legoat', 'atilidriss@gmail.com', 'motdepasse_exemple', '2024-01-01', 3),
+(1, 'Atil', 'Idriss', 'cr7legoat', 'atilidriss@gmail.com', 'motdepasse_exemple', '2024-01-01', 3),
 (2, 'Dupont', 'Marie', 'mdupont', 'marie@example.com', 'dupontjosef65', '2024-02-01', 1),
 (3, 'Lemoine', 'Paul', 'tartempion_95', 'paul.lemoine@example.com', 'azerty1234', '2024-03-01', 2),
 (4, 'Martin', 'Lucie', 'grumpy_cat', 'lucie.martin@example.com', 'password123', '2024-04-01', 4),
@@ -247,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `ville` (
   `nom` varchar(30) DEFAULT NULL,
   `pays` varchar(30) DEFAULT NULL,
   `nb_population` int(11) DEFAULT NULL,
-  `date_constrcution` date DEFAULT NULL,
+  `date_construction` date DEFAULT NULL,
   PRIMARY KEY (`id_ville`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -255,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `ville` (
 -- Déchargement des données de la table `ville`
 --
 
-INSERT INTO `ville` (`id_ville`, `nom`, `pays`, `nb_population`, `date_constrcution`) VALUES
+INSERT INTO `ville` (`id_ville`, `nom`, `pays`, `nb_population`, `date_construction`) VALUES
 (2, 'Marseille', 'France', 870000, '0600-01-01'),
 (1, 'Paris', 'France', 2148000, '0520-01-01'),
 (3, 'Lyon', 'France', 522000, '0043-01-01'),
