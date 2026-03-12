@@ -14,7 +14,15 @@
             font-family: Arial, sans-serif;
             color: #000000
         }
-
+        p { color:#ffffff
+        }
+        h1{ display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: Arial, sans-serif;
+            color: #ffffff
+        }
         .gif-container {
             margin-top: 30px;
             width: 300px;
