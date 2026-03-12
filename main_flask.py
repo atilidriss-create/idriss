@@ -7,18 +7,24 @@ from main import requeter
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST']) 
-def home():
+
+
+@app.route("/")
+def index():
+    return render_template("accueil.html")
+
+@app.route('/recherche', methods=['GET', 'POST']) 
+def recherche():
     resultats = []
     requete  = ''
     
     if request.method == 'POST':
         requete = request.form.get('recherche', '')
         resultats = [
-            {"titre": f"L'utilisateur a demandé : {requete} =  {requeter(requete)}"}
+            {"titre": f"L'utilisateur a demandé : {requete} ==>  {requeter(requete)}"}
         ]
     
-    return render_template("siteJI.html", resultats=resultats, requete=requete)
+    return render_template("recherche.html", resultats=resultats, requete=requete)
 
   
 if __name__ == '__main__':
