@@ -65,6 +65,25 @@
         #playButton:hover {
             background: linear-gradient(135deg, #00b14a, #005714);
 }
+        
+        #playButton2 {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #00c853, #009624);
+            border-radius:  8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 200, 83, 0.4);
+            border: none;
+           position: fixed;
+           bottom: 20px;
+           right: 20px;
+
+        }
+        #playButton2:hover {
+            background: linear-gradient(135deg, #00b14a, #005714);
+}
 
         .resultat {
             width: 30%;
