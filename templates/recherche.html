@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site J and I</title>
+    <link href="{{ url_for('static', filename='css.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="gif-container">
+        <img src="{{ url_for('static', filename='robot.gif') }}">
+    </div>
+
+    <div class="message-bar">
+        <form method="POST">
+            <input type="text" name="recherche" placeholder="Ecrire un message...">
+            <button type="submit">Chercher</button>
+        </form>
+    </div>
+
+    {% for resultat in resultats %}
+        <div>
+            <h3>{{ resultat.titre }}</h3>
+            <p>{{ resultat.description }}</p>
+        </div>
+    {% endfor %}
+ <a href="/">La page d'accueil</a>.
+</body>
+</html>
