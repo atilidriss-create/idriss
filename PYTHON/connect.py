@@ -1,15 +1,15 @@
 import mysql.connector
-from classes import Pile, File
+from classes import Pile
 
 
 def connecter(requete):
     try:
         # Connexion à la base de données
         mydb = mysql.connector.connect(
-            host='localhost',
-            database= "commandes_vocales",
-            user='root',
-            password=None
+            host='0504-srv-sig',
+            database= "nsi_eleve3",
+            user='nsi_eleve3',
+            password='eleve3'
         )
         mydb.autocommit = True  # Autocommit pour éviter de devoir faire un commit
 
@@ -27,13 +27,6 @@ def connecter(requete):
 
         return p
 
-         
-
-        # Récupérer tous les résultats
-        
-
-        # Vérifier et afficher les résultats
-        #Affiche chaque ligne retournée par la requête
 
     except mysql.connector.Error as err:
         print(f"Erreur lors de la connexion ou de l'exécution de la requête : {err}")
