@@ -59,8 +59,18 @@ class Action:
         Affiche une blague aléatoirement.
         """
         id = randint(1,35)
-        blagues = connecter(f"SELECT lablague FROM blague WHERE id_blague = '{id}'").sommet()[0]
+        blagues = connecter(f"SELECT lablague FROM blague WHERE id_blague = '{id}';").sommet()[0]
         return blagues
+    
+    
+    def afficher_mail_utilisateur(self, utilisateur):
+        """
+        Affiche le mail d'un utilisateur
+        """
+        mail = connecter(f"SELECT mail FROM utilisateur WHERE surnom = '{utilisateur}';")
+        return mail
     
 
 
+
+    
