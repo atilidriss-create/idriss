@@ -24,7 +24,7 @@ def recherche():
     requete  = ''
     
     if request.method == 'POST':
-        requete = request.form.get('recherche')
+        requete = request.form.get('recherche', "")
         resultats = [
             {"titre": f"L'utilisateur a demandé : {requete} ==>  {connecter(requete)}"}
         ]
@@ -65,6 +65,5 @@ def informations():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
     
     
