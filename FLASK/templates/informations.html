@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations</title>
+    <link href="{{ url_for('static', filename='css_connexion.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="card">
+            <header>
+                <div>
+                    <h1>Page d'informations</h1>
+                    <p>Tout ce qu'il faut savoir sur le projet et ses fonctionnalités.</p>
+                </div>
+                <div class="help-text">
+                    <span>Retour rapide</span>
+                    <a href="{{ url_for('index') }}">Accueil</a>
+                </div>
+            </header>
+
+            <section class="form-group">
+                <div class="feature-card">
+                    <h3>Objectif du projet</h3>
+                    <p>Ce site présente un assistant simple capable de recevoir des messages, détecter des mots-clés et exécuter des actions automatisées selon des commandes prédéfinies.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fonctionnalités clés</h3>
+                    <ul>
+                        <li>Envoyer un message depuis la page de recherche.</li>
+                        <li>Détection de mots-clés basée sur le texte.</li>
+                        <li>Exécution d’actions prédéfinies (météo, informations, liens, etc.).</li>
+                        <li>Interface claire et responsive avec connexion et inscription.</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>Structure du projet</h3>
+                    <ul>
+                        <li>Templates Flask pour les pages.</li>
+                        <li>CSS dédié pour l’accueil, la connexion et l’inscription.</li>
+                        <li>Routes Flask dans `main_flask.py` pour gérer les pages.</li>
+                        <li>Actions et requêtes gérées via des modules Python.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="footer-note">
+                <p>Ce projet est conçu pour être évolutif : tu peux ajouter de nouveaux mots-clés, actions et pages supplémentaires facilement.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
