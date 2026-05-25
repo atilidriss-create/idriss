@@ -2,40 +2,36 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
-    <link href="{{ url_for('static', filename='cssI.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css_connexion.css') }}" rel="stylesheet">
 </head>
-
 <body>
+    <div class="page-shell">
+        <div class="card">
+            <header>
+                <div>
+                    <h1>Connexion</h1>
+                    <p>Accède à ton espace sécurisé et continue ton expérience.</p>
+                </div>
+                <div class="help-text">
+                    <span>Pas encore inscrit ?</span>
+                    <a href="{{ url_for('inscription') }}">Créer un compte</a>
+                </div>
+            </header>
 
-<header>
-    <h2>Connexion</h2>
-    <p>Bienvenue sur la page de connexion</p>
-</header>
+            <form method="POST" action="{{ url_for('connexion') }}">
+                <div class="form-group">
+                    <input type="text" name="nom_utilisateur" placeholder="Nom d'utilisateur" required autofocus>
+                    <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+                </div>
+                <button class="button-primary" type="submit">Se connecter</button>
+            </form>
 
-
-
-<nav>
-    <a href="/">Accueil</a>
-    <a href="/recherche">Rechercher</a>
-    <a href="/apropos">À propos</a>
-    <a href="/contact">Contact</a>
-</nav>
-
-<section class="hero">
-<form>
-    <input type="username" placeholder="utilisateur"required>
-    <input type="password" placeholder="Mot de passe" required>
-
-<button type="submit">Se connecter</button>
-</form>
-</section>
-
-
-
+            <div class="footer-note">
+                <p><a href="{{ url_for('index') }}">Retour à l'accueil</a> · <a href="{{ url_for('informations') }}">Voir les informations</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
-
-
-</head>
